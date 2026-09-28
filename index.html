@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="description" content="Y2K silver jewelry and prints." />
+    <meta name="theme-color" content="#610b0d" />
+    <title>✦ Chewing Lightly ✦</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ======================================================================
+  SHAPE + DOODLE LIBRARY (hidden). Photos are cut with the shapes below and
+  the doodles are drawn lines you can place anywhere. You don't need to edit
+  this block, just use the ids further down (e.g. href="#d-sparkle").
+====================================================================== -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <defs>
+        <!-- Photo shapes (each is a path drawn on a 0-1 grid) -->
+        <path
+          id="p-star"
+          d="M.5 0 L.61 .35 L.98 .35 L.68 .57 L.79 .91 L.5 .70 L.21 .91 L.32 .57 L.02 .35 L.39 .35Z"
+        />
+        <path
+          id="p-heart"
+          d="M.5 .96 C.1 .62 0 .38 .12 .2 C.24 .03 .43 .07 .5 .25 C.57 .07 .76 .03 .88 .2 C1 .38 .9 .62 .5 .96Z"
+        />
+        <path
+          id="p-arch"
+          d="M0 1 L0 .5 C0 .2 .22 0 .5 0 C.78 0 1 .2 1 .5 L1 1Z"
+        />
+
+        <clipPath id="clip-blob-a" clipPathUnits="objectBoundingBox">
+          <path
+            d="M.30 .04 C.48 0 .62 .12 .78 .10 C.94 .09 .99 .30 .93 .48 C.87 .64 .98 .78 .82 .90 C.66 .99 .50 .90 .36 .96 C.18 .99 .02 .84 .06 .64 C.09 .48 .01 .34 .10 .20 C.16 .10 .20 .07 .30 .04Z"
+          />
+        </clipPath>
+        <clipPath id="clip-blob-b" clipPathUnits="objectBoundingBox">
+          <path
+            d="M.50 .02 C.68 .02 .74 .20 .88 .26 C1 .34 .96 .56 .86 .68 C.76 .82 .78 .98 .56 .98 C.36 .98 .30 .82 .16 .74 C.02 .64 .04 .42 .16 .30 C.28 .18 .32 .02 .50 .02Z"
+          />
+        </clipPath>
+        <clipPath id="clip-star" clipPathUnits="objectBoundingBox">
+          <path
+            d="M.5 0 L.61 .35 L.98 .35 L.68 .57 L.79 .91 L.5 .70 L.21 .91 L.32 .57 L.02 .35 L.39 .35Z"
+          />
+        </clipPath>
+        <clipPath id="clip-heart" clipPathUnits="objectBoundingBox">
+          <path
+            d="M.5 .96 C.1 .62 0 .38 .12 .2 C.24 .03 .43 .07 .5 .25 C.57 .07 .76 .03 .88 .2 C1 .38 .9 .62 .5 .96Z"
+          />
+        </clipPath>
+        <clipPath id="clip-circle" clipPathUnits="objectBoundingBox">
+          <path d="M.5 0 A.5 .5 0 1 1 .5 1 A.5 .5 0 1 1 .5 0Z" />
+        </clipPath>
+        <clipPath id="clip-arch" clipPathUnits="objectBoundingBox">
+          <path d="M0 1 L0 .5 C0 .2 .22 0 .5 0 C.78 0 1 .2 1 .5 L1 1Z" />
+        </clipPath>
+
+        <!-- Doodles (drawn on a 100x100 grid) -->
+        <symbol id="d-sparkle" viewBox="0 0 100 100">
+          <path
+            d="M50 2 C53 32 68 47 98 50 C68 53 53 68 50 98 C47 68 32 53 2 50 C32 47 47 32 50 2Z"
+          />
+        </symbol>
+        <symbol id="d-star" viewBox="0 0 100 100">
+          <path
+            d="M50 6 L61 38 L94 38 L67 58 L77 92 L50 72 L23 92 L33 58 L6 38 L39 38Z"
+          />
+          <path d="M30 46 Q50 62 70 46" />
+        </symbol>
+        <symbol id="d-disco" viewBox="0 0 100 100">
+          <path d="M50 2 V18" />
+          <circle cx="50" cy="56" r="38" />
+          <ellipse cx="50" cy="56" rx="38" ry="12" />
+          <ellipse cx="50" cy="56" rx="38" ry="26" />
+          <ellipse cx="50" cy="56" rx="14" ry="38" />
+          <ellipse cx="50" cy="56" rx="27" ry="38" />
+          <path d="M50 18 V94" />
+        </symbol>
+        <symbol id="d-squiggle" viewBox="0 0 100 40">
+          <path d="M2 20 Q14 -2 26 20 T50 20 T74 20 T98 20" />
+        </symbol>
+        <symbol id="d-spiral" viewBox="0 0 100 100">
+          <path
+            d="M50 50 C52 46 57 47 57 52 C57 60 46 62 42 54 C36 43 48 34 58 38 C72 44 70 62 58 68 C42 76 26 62 30 46 C34 28 58 22 72 32 C88 42 84 70 66 80"
+          />
+        </symbol>
+        <symbol id="d-cursor" viewBox="0 0 100 100">
+          <path d="M22 8 L22 78 L40 62 L52 90 L63 85 L51 58 L76 56Z" />
+        </symbol>
+        <symbol id="d-heart" viewBox="0 0 100 100">
+          <path
+            d="M50 92 C10 60 2 38 14 20 C26 4 44 8 50 26 C56 8 74 4 86 20 C98 38 90 60 50 92Z"
+          />
+        </symbol>
+        <symbol id="d-ring" viewBox="0 0 100 100">
+          <use
+            href="#d-sparkle"
+            x="84.5"
+            y="44.5"
+            width="11"
+            height="11"
+            stroke-width="14.5"
+          />
+          <use
+            href="#d-sparkle"
+            x="82.5"
+            y="63.9"
+            width="7"
+            height="7"
+            stroke-width="22.9"
+          />
+          <use
+            href="#d-sparkle"
+            x="69.4"
+            y="75.8"
+            width="11"
+            height="11"
+            stroke-width="14.5"
+          />
+          <use
+            href="#d-sparkle"
+            x="55.4"
+            y="85.5"
+            width="7"
+            height="7"
+            stroke-width="22.9"
+          />
+          <use
+            href="#d-sparkle"
+            x="35.6"
+            y="83.5"
+            width="11"
+            height="11"
+            stroke-width="14.5"
+          />
+          <use
+            href="#d-sparkle"
+            x="21.6"
+            y="77.8"
+            width="7"
+            height="7"
+            stroke-width="22.9"
+          />
+          <use
+            href="#d-sparkle"
+            x="8.5"
+            y="61.9"
+            width="11"
+            height="11"
+            stroke-width="14.5"
+          />
+          <use
+            href="#d-sparkle"
+            x="6.5"
+            y="46.5"
+            width="7"
+            height="7"
+            stroke-width="22.9"
+          />
+          <use
+            href="#d-sparkle"
+            x="8.5"
+            y="27.1"
+            width="11"
+            height="11"
+            stroke-width="14.5"
+          />
+          <use
+            href="#d-sparkle"
+            x="21.6"
+            y="15.2"
+            width="7"
+            height="7"
+            stroke-width="22.9"
+          />
+          <use
+            href="#d-sparkle"
+            x="35.6"
+            y="5.5"
+            width="11"
+            height="11"
+            stroke-width="14.5"
+          />
+          <use
+            href="#d-sparkle"
+            x="55.4"
+            y="7.5"
+            width="7"
+            height="7"
+            stroke-width="22.9"
+          />
+          <use
+            href="#d-sparkle"
+            x="69.4"
+            y="13.2"
+            width="11"
+            height="11"
+            stroke-width="14.5"
+          />
+          <use
+            href="#d-sparkle"
+            x="82.5"
+            y="29.1"
+            width="7"
+            height="7"
+            stroke-width="22.9"
+          />
+        </symbol>
+      </defs>
+    </svg>
+
+    <!-- ======================================================================
+  HOW TO CUSTOMISE THE COLLAGE
+  Each piece is positioned with numbers in its style="" attribute:
+    --x  left (0-100)   --y  top (0-132)   --w  width   --tilt  rotation   --z  layer
+  • Swap a photo: change src="".
+  • Change a photo's shape: change the class (blob-a, blob-b, star, heart,
+    circle, arch).
+  • Add a doodle: copy a doodle line and change the numbers or the #d-... id.
+====================================================================== -->
+
+    <main class="collage">
+      <!-- Title (styled in style.css, section 4) -->
+      <!-- <h1 class="title outline-text">
+    <span>Chewing</span>
+    <span>Lightly</span>
+    <small>✦ 2026 ✦</small>
+  </h1> -->
+      <div
+        style="
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        "
+      >
+        <div class="title outline-text">
+          <img
+            src="images/title.png"
+            alt="Chewing Lightly logo"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <!-- BACKGROUND LINE PATTERNS ================================== -->
+      <!-- <div class="piece backdrop grid"     style="--x:0;  --y:0;  --w:100; --h:132; --z:0" aria-hidden="true"></div> -->
+      <!-- <div class="piece backdrop hatch"    style="--x:0;  --y:27; --w:44;  --h:26;  --z:1; --tilt:-2deg" aria-hidden="true"></div> -->
+      <!-- <div class="piece backdrop halftone" style="--x:48; --y:38; --w:62;  --h:62;  --z:1" aria-hidden="true"></div> -->
+
+      <!-- Faded duplicate photo behind the title -->
+      <div
+        class="piece frame blob-a"
+        style="--x: 36; --y: 40; --w: 30; --z: 1; --tilt: 2deg"
+        aria-hidden="true"
+      >
+        <img src="images/sunflowerEarrings.png" alt="" loading="lazy" />
+      </div>
+
+      <!-- DOODLES BEHIND THE PHOTOS ================================= -->
+      <svg
+        class="piece doodle"
+        style="--x: 1; --y: 40; --w: 36; --z: 2"
+        viewBox="0 0 100 100"
+        aria-hidden="true"
+      >
+        <use href="#d-ring" />
+      </svg>
+
+      <!-- PHOTOS ==================================================== -->
+      <figure
+        class="piece"
+        style="--x: 7; --y: 29; --w: 38; --tilt: -4deg; --z: 3"
+      >
+        <div class="frame blob-a" style="--ratio: 4/5">
+          <img
+            src="images/HannahEarring.png"
+            alt="Silver necklace"
+            loading="lazy"
+          />
+        </div>
+      </figure>
+
+      <figure
+        class="piece"
+        style="--x: 62; --y: 30; --w: 25; --tilt: 6deg; --z: 4"
+      >
+        <div class="frame blob-b" ">
+          <img src="images/EJshroom.png" alt="Silver rings" loading="lazy" />
+        </div>
+      </figure>
+
+      <figure class="piece" style="--x: 4; --y: 66; --w: 28; --z: 6">
+        <div class="frame circle">
+          <img src="images/flowerPendant.png" alt="Pendant" loading="lazy" />
+        </div>
+      </figure>
+
+      <figure
+        class="piece"
+        style="--x: 30; --y: 70; --w: 34; --tilt: -6deg; --z: 5"
+      >
+        <div class="frame heart">
+          <img src="images/handFlower.png" alt="Earrings" loading="lazy" />
+        </div>
+      </figure>
+
+      <figure
+        class="piece"
+        style="--x: 65; --y: 58; --w: 29; --tilt: 5deg; --z: 4"
+      >
+        <div class="frame arch" style="--ratio: 3/4">
+          <img src="images/gemHand.png" alt="Bracelet" loading="lazy" />
+        </div>
+      </figure>
+
+      <figure
+        class="piece polaroid"
+        style="--x: 12; --y: 93; --w: 31; --tilt: -5deg; --z: 6"
+      >
+        <img
+          src="images/gem.jpeg"
+          alt="Chain necklaces"
+          loading="lazy"
+        />
+        <figcaption>♧</figcaption>
+      </figure>
+
+      <figure
+        class="piece"
+        style="--x: 46; --y: 97; --w: 24; --tilt: 8deg; --z: 6"
+      >
+        <div class="frame blob-b">
+          <img
+            src="images/handDaffodil.png"
+            alt="hand holding daffodil earrings"
+            loading="lazy"
+          />
+        </div>
+      </figure>
+
+      <!-- TAPE ====================================================== -->
+      <!-- hannah tape: -->
+      <span
+        class="piece tape"
+        style="--x: 16; --y: 28; --w: 16; --tilt: -8deg; --z: 9"
+        aria-hidden="true"
+      ></span>
+      <!-- flower tape -->
+      <span
+        class="piece tape"
+        style="--x: 18; --y: 90; --w: 13; --tilt: 6deg; --z: 9"
+        aria-hidden="true"
+      ></span>
+      <span
+        class="piece tape"
+        style="--x: 72; --y: 56; --w: 15; --tilt: 10deg; --z: 9"
+        aria-hidden="true"
+      ></span>
+
+      <!-- DOODLES ON TOP ============================================ -->
+      <!-- red stars -->
+      <img
+        src="images/redStar.png"
+        alt="red star doodle"
+        class="piece doodle"
+        style="--x: 14; --y: 59; --w: 13; --tilt: 12deg; --z: 8"
+        aria-hidden="true"
+      />
+       <img
+        src="images/redStar.png"
+        alt="red star doodle"
+        class="piece doodle"
+        style="--x: 74; --y: 19; --w: 13; --tilt: 12deg; --z: 2"
+        aria-hidden="true"
+      />
+      <img
+        src="images/redStar.png"
+        alt="red star doodle"
+        class="piece doodle"
+        style="--x: 54; --y: 78; --w: 13; --tilt: 12deg; --z: 2"
+        aria-hidden="true"
+      />
+      <img
+        src="images/redStar.png"
+        alt="red star doodle"
+        class="piece doodle"
+        style="--x: 37; --y: 108; --w: 13; --tilt: 12deg; --z: 2"
+        aria-hidden="true"
+      />
+
+      <svg
+        class="piece doodle"
+        style="--x: 0; --y: 46; --w: 17; --tilt: -10deg; --z: 8"
+        viewBox="0 0 100 100"
+        aria-hidden="true"
+      >
+        <use href="#d-disco" />
+      </svg>
+      <svg
+        class="piece doodle"
+        style="--x: 84; --y: 108; --w: 13; --tilt: 12deg; --z: 8"
+        viewBox="0 0 100 100"
+        aria-hidden="true"
+      >
+        <use href="#d-star" />
+      </svg>
+      <svg
+        class="piece doodle"
+        style="--x: 56; --y: 114; --w: 12; --tilt: -6deg; --z: 8"
+        viewBox="0 0 100 100"
+        aria-hidden="true"
+      >
+        <use href="#d-spiral" />
+      </svg>
+      <svg
+        class="piece doodle"
+        style="--x: 26; --y: 86; --w: 20; --tilt: -8deg; --z: 8"
+        viewBox="0 0 100 40"
+        aria-hidden="true"
+      >
+        <use href="#d-squiggle" />
+      </svg>
+      <svg
+        class="piece doodle"
+        style="--x: 80; --y: 88; --w: 16; --tilt: 14deg; --z: 8"
+        viewBox="0 0 100 40"
+        aria-hidden="true"
+      >
+        <use href="#d-squiggle" />
+      </svg>
+      <svg
+        class="piece doodle"
+        style="--x: 29; --y: 118; --w: 8; --tilt: -12deg; --z: 8"
+        viewBox="0 0 100 100"
+        aria-hidden="true"
+      >
+        <use href="#d-cursor" />
+      </svg>
+      <svg
+        class="piece doodle"
+        style="--x: 91; --y: 30; --w: 6; --tilt: 12deg; --z: 10"
+        viewBox="0 0 100 100"
+        aria-hidden="true"
+      >
+        <use href="#d-heart" />
+      </svg>
+      <svg
+        class="piece doodle"
+        style="--x: 36; --y: 27; --w: 6; --tilt: -14deg; --z: 10"
+        viewBox="0 0 100 100"
+        aria-hidden="true"
+      >
+        <use href="#d-heart" />
+      </svg>
+
+      <!-- Sparkles (--delay staggers the twinkle) -->
+      <svg
+        class="piece doodle sparkle"
+        style="--x: 41; --y: 19; --w: 10; --z: 10; --delay: 0s"
+        viewBox="0 0 100 100"
+        aria-hidden="true"
+      >
+        <use href="#d-sparkle" />
+      </svg>
+      <svg
+        class="piece doodle sparkle"
+        style="--x: 88; --y: 50; --w: 8; --z: 10; --delay: 0.5s"
+        viewBox="0 0 100 100"
+        aria-hidden="true"
+      >
+        <use href="#d-sparkle" />
+      </svg>
+      <svg
+        class="piece doodle sparkle"
+        style="--x: 27; --y: 92; --w: 7; --z: 10; --delay: 1s"
+        viewBox="0 0 100 100"
+        aria-hidden="true"
+      >
+        <use href="#d-sparkle" />
+      </svg>
+      <svg
+        class="piece doodle sparkle"
+        style="--x: 2; --y: 60; --w: 8; --z: 10; --delay: 1.5s"
+        viewBox="0 0 100 100"
+        aria-hidden="true"
+      >
+        <use href="#d-sparkle" />
+      </svg>
+      <svg
+        class="piece doodle sparkle"
+        style="--x: 60; --y: 94; --w: 6; --z: 10; --delay: 2s"
+        viewBox="0 0 100 100"
+        aria-hidden="true"
+      >
+        <use href="#d-sparkle" />
+      </svg>
+      <svg
+        class="piece doodle sparkle"
+        style="--x: 91; --y: 16; --w: 7; --z: 10; --delay: 2.4s"
+        viewBox="0 0 100 100"
+        aria-hidden="true"
+      >
+        <use href="#d-sparkle" />
+      </svg>
+
+      <!-- STICKERS AND LINKS ======================================== -->
+      <span
+        class="piece sticker sticker-round"
+        style="--x:0; --y: 106; --w: 19; --tilt: -12deg; --z: 7"
+        aria-hidden="true"
+      >
+        ✦ chomp chomp ✦</span
+      >
+
+      <a
+        class="piece sticker sticker-shop"
+        href="shop.html"
+        style="--x: 69; --y: 96; --w: 21; --tilt: -8deg; --z: 8"
+        >shop</a
+      >
+
+      <a
+        class="piece sticker sticker-tag"
+        href="about.html"
+        style="--x: 72; --y: 121; --w: 25; --tilt: 4deg; --z: 8"
+        >about ✦</a
+      >
+    </main>
+  </body>
+</html>
