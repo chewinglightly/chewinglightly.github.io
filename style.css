@@ -1,0 +1,440 @@
+/* ==========================================================================
+   ✦ CHEWING LIGHTLY: STYLESHEET  (line-drawing edition)
+   --------------------------------------------------------------------------
+   1. Design tokens   (colors, fonts, LINE THICKNESS: start here)
+   2. Base
+   3. Shared parts    (nav, headings, buttons)
+   4. Home collage    (how to place pieces is explained in index.html)
+   5. Prints page
+   6. About page
+   ========================================================================== */
+
+@layer base, shared, home, prints, about;
+
+/* ==========================================================================
+   1. DESIGN TOKENS
+   ========================================================================== */
+:root {
+  --burgundy:      #610b0d;   /* background */
+  --burgundy-dark: #2a0405;
+  --red:           #a90b0d;   /* accent */
+  --silver:        #c9ccd3;   /* all the line work */
+  --silver-light:  #f4f6fa;   /* highlights */
+  --chrome: linear-gradient(135deg, #f4f6fa 0%, #a9adb6 35%, #e8eaf0 55%, #7d818a 100%);
+
+  --line: 1.5px;              /* ← make every drawn line thicker or thinner */
+
+  --font-display: "Century Schoolbook", "Garamond", serif;
+  --font-body:    "Trebuchet MS", Verdana, sans-serif;
+  --font-hand:    "Comic Sans MS", "Marker Felt", cursive;
+
+  /* Shows while a photo loads (or if its link is broken) */
+  --photo-fallback: radial-gradient(circle at 30% 30%, #e8eaf0 0, #a9adb6 30%, #4a0809 100%);
+}
+
+/* ==========================================================================
+   2. BASE
+   ========================================================================== */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    min-block-size: 100vh;
+    background: var(--burgundy);
+    color: var(--silver);
+    font-family: var(--font-body);
+    overflow-x: clip;
+  }
+  img { display: block; max-inline-size: 100%; color: transparent; } /* hides alt text if a photo fails */
+  :focus-visible { outline: 2px solid var(--silver-light); outline-offset: 3px; }
+  a { color: var(--red); font-weight: 900; text-decoration: underline; }
+}
+
+/* ==========================================================================
+   3. SHARED PARTS
+   ========================================================================== */
+@layer shared {
+
+  /* Outlined lettering: transparent fill, thin silver stroke */
+  .outline-text {
+    color: transparent;
+    -webkit-text-stroke: var(--line) var(--silver-light);
+    font-family: var(--font-display);
+    text-transform: uppercase;
+  }
+  /* Silver gradient text (used for small headings) */
+  .chrome-text {
+    background: var(--chrome);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-family: var(--font-display);
+    text-transform: uppercase;
+  }
+
+  .site-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.9rem 0.5rem;
+    border-block-end: var(--line) solid var(--silver-light);
+
+    a {
+      padding: 0.5rem 1.1rem;
+      border: var(--line) solid var(--silver);
+      border-radius: 2rem;
+      color: var(--silver-light);
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      &:hover,
+      &[aria-current="page"] { background: var(--silver-light); color: var(--burgundy); }
+    }
+  }
+
+  .page-header {
+    padding: 2rem 1rem 0.5rem;
+    text-align: center;
+
+    h1 {
+      font-size: clamp(2.6rem, 12vw, 6rem);
+      line-height: 1.05;
+      letter-spacing: 0.05em;
+      rotate: -2deg;
+      filter: drop-shadow(0.35rem 0.35rem 0 rgb(201 204 211 / 0.3));  /* ghost outline */
+    }
+    p {
+      display: inline-block;
+      margin-block-start: 0.7rem;
+      padding: 0.25rem 1rem;
+      border: var(--line) dashed var(--silver);
+      border-radius: 2rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+  }
+
+  .button {
+    display: block;
+    inline-size: max-content;
+    max-inline-size: 90%;
+    margin: 1rem auto 3rem;
+    padding: 0.8rem 2rem;
+    border: var(--line) solid var(--silver);
+    border-radius: 3rem;
+    color: var(--silver-light);
+    letter-spacing: 0.2em;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:hover { background: var(--silver-light); color: var(--burgundy); }
+  }
+
+  .site-footer {
+    padding: 1.5rem 0.75rem;
+    border-block-start: var(--line) solid var(--silver);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
+
+/* ==========================================================================
+   4. HOME COLLAGE
+   --------------------------------------------------------------------------
+   Every piece is placed with numbers in its style="" attribute:
+     --x (left, 0-100)  --y (top, 0-132)  --w (width)  --tilt (e.g. -5deg)  --z (layer)
+   The board is 100 wide and 132 tall and scales to any screen.
+   ========================================================================== */
+@layer home {
+
+  .collage {
+    container-type: inline-size;   /* "cqw" below = 1% of the board's width */
+    position: relative;
+    inline-size: 100%;
+    max-inline-size: 56rem;
+    aspect-ratio: 100 / 132;
+    margin-inline: auto;
+    overflow: clip;
+  }
+
+  .piece {
+    position: absolute;
+    inset-inline-start: calc(var(--x) * 1cqw);
+    inset-block-start:  calc(var(--y) * 1cqw);
+    inline-size:        calc(var(--w, 10) * 1cqw);
+    z-index: var(--z, 3);
+    rotate: var(--tilt, 0deg);
+    transition: rotate 0.25s, scale 0.25s;
+
+    &:hover { rotate: 0deg; scale: 1.05; z-index: 20; }
+  }
+
+  /* --- Drawn doodles (SVG) --------------------------------------------- */
+  .doodle {
+    color: var(--silver);
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;                 /* line thickness of the doodles (drawing units) */
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    overflow: visible;
+    pointer-events: none;
+  }
+  .sparkle { animation: twinkle 2.6s ease-in-out infinite; animation-delay: var(--delay, 0s); }
+  @keyframes twinkle { 50% { scale: 0.6; opacity: 0.55; rotate: 45deg; } }
+
+  /* --- Photo frames: image cut to a shape + a thin outline halo -------- */
+  .frame {
+    position: relative;
+    aspect-ratio: var(--ratio, 1);
+    /* Thin silver outline that hugs the cut-out shape (works in every browser) */
+    filter:
+      drop-shadow(var(--line) 0 0 var(--silver))
+      drop-shadow(calc(var(--line) * -1) 0 0 var(--silver))
+      drop-shadow(0 var(--line) 0 var(--silver))
+      drop-shadow(0 calc(var(--line) * -1) 0 var(--silver));
+
+    img {
+      inline-size: 100%;
+      block-size: 100%;
+      object-fit: cover;
+      background: var(--photo-fallback);
+      clip-path: var(--clip, none);
+    }
+  }
+  /* Pick a shape by adding one of these classes to a .frame */
+  .blob-a { --clip: url(#clip-blob-a); }
+  .blob-b { --clip: url(#clip-blob-b); }
+  .star   { --clip: url(#clip-star); }
+  .heart  { --clip: url(#clip-heart); }
+  .circle { --clip: url(#clip-circle); }
+  .arch   { --clip: url(#clip-arch); }
+
+  /* --- Polaroid (line version) ----------------------------------------- */
+  .polaroid {
+    padding: 1.8cqw 1.8cqw 0;
+    border: var(--line) solid var(--silver);
+    outline: var(--line) solid var(--silver);
+    outline-offset: 0.8cqw;
+    background: var(--burgundy);
+    text-align: center;
+
+    img {
+      aspect-ratio: 1;
+      inline-size: 100%;
+      object-fit: cover;
+      border: var(--line) solid var(--silver);
+      background: var(--photo-fallback);
+    }
+    figcaption { padding-block: 1.4cqw 2cqw; font-family: var(--font-hand); font-size: 3.2cqw; color: var(--silver-light); }
+  }
+
+  /* --- Faded photo behind the title ------------------------------------ */
+  .echo {
+    aspect-ratio: 60 / 26;
+    overflow: clip;
+    border: var(--line) solid var(--silver);
+    img { inline-size: 100%; block-size: 100%; object-fit: cover; filter: grayscale(1); opacity: 0.35; }
+  }
+
+  /* --- Background line patterns ---------------------------------------- */
+  .backdrop { block-size: calc(var(--h) * 1cqw); pointer-events: none; }
+  .backdrop:hover { rotate: var(--tilt, 0deg); scale: 1; }
+
+  .grid {                                /* graph-paper lines */
+    background-image:
+      linear-gradient(rgb(201 204 211 / 0.16) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(201 204 211 / 0.16) 1px, transparent 1px);
+    background-size: 7cqw 7cqw;
+  }
+  .hatch {                               /* diagonal pen-hatching */
+    border: var(--line) solid var(--silver);
+    background: repeating-linear-gradient(45deg, rgb(201 204 211 / 0.45) 0 1px, transparent 1px 1.6cqw);
+  }
+  .halftone {
+    border-radius: 50%;
+    background: radial-gradient(circle, rgb(201 204 211 / 0.5) 22%, transparent 26%);
+    background-size: 2.6cqw 2.6cqw;
+    mask-image: radial-gradient(circle, #000 35%, transparent 70%);
+  }
+
+  .tape {
+    block-size: 5cqw;
+    border: var(--line) solid var(--silver);
+    background: rgb(201 204 211 / 0.12);
+    pointer-events: none;
+  }
+
+  /* --- Line stickers and link tags ------------------------------------- */
+  .sticker {
+    display: grid;
+    place-items: center;
+    border: var(--line) solid var(--silver);
+    outline: var(--line) solid var(--silver);
+    outline-offset: 0.6cqw;
+    background: var(--burgundy);
+    color: var(--silver-light);
+    font-family: var(--font-display);
+    letter-spacing: 0.08em;
+    line-height: 1.05;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  a.sticker:hover { background: var(--silver-light); color: var(--burgundy); }
+  .sticker-round { aspect-ratio: 1; border-radius: 50%; font-size: 4cqw; }
+  .sticker-shop  { aspect-ratio: 1; border-radius: 50%; font-size: 4.6cqw; }
+  .sticker-tag   { padding: 1.6cqw 1cqw; border-radius: 99cqw; font-size: 3.8cqw; }
+
+  /* --- Title ----------------------------------------------------------- */
+  .title {
+    position: absolute;
+    /* centrally aligned: */
+    align-items: center;
+    justify-content: center;
+    top: 0%;
+    max-width: 50%;
+    /* inset-inline: 0; */
+    /* inset-block-start: 50cqw; */
+    z-index: 15;
+    line-height: 0.95;
+    text-align: center;
+    rotate: -3deg;
+    transform: skewX(-6deg);
+    pointer-events: none;
+    -webkit-text-stroke-width: max(var(--line), 0.22cqw);
+    filter: drop-shadow(1cqw 1cqw 0 rgb(201 204 211 / 0.28));   /* ghost outline */
+    
+    /* span  { display: block; font-size: var(--title-size, 18cqw); letter-spacing: 0.4cqw; }
+    small { display: block; font-size: 8cqw;  letter-spacing: 1.4cqw; } */
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sparkle { animation: none; }
+    .piece   { transition: none; }
+  }
+}
+
+/* ==========================================================================
+   5. PRINTS PAGE
+   ========================================================================== */
+@layer prints {
+
+  .shop-note {
+    max-inline-size: 38rem;
+    margin:3rem;
+    padding-inline: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    text-align: center;
+    font-style: italic;
+    color: var(--silver-light);
+  }
+
+  .shop-note-div {
+    background: var(--burgundy-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.6rem 1rem;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin: 1.2rem;
+  }
+
+  .print-grid {                          /* adds/removes columns by itself */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+    gap: 1.4rem 0.9rem;
+    max-inline-size: 62rem;
+    margin: 1.5rem auto 2.5rem;
+    padding-inline: 1rem;
+    list-style: none;
+  }
+
+  .print-card {
+    display: flex;
+    flex-direction: column;
+    padding: 0.6rem 0.6rem 0.9rem;
+    border: var(--line) solid var(--silver);
+    border-radius: 1.2rem 1.2rem 0.5rem 1.2rem;      /* slightly hand-drawn corners */
+    text-align: center;
+
+    img {
+      aspect-ratio: 4 / 5;
+      inline-size: 100%;
+      object-fit: cover;
+      border-radius: 0.8rem 0.8rem 0.3rem 0.8rem;
+      background: var(--photo-fallback);
+    }
+    h2     { margin-block: 0.7rem 0.1rem; color: var(--silver-light); font-size: clamp(0.85rem, 3.4vw, 1rem); font-weight: normal; letter-spacing: 0.14em; text-transform: uppercase; }
+    .size  { font-size: 0.75rem; opacity: 0.8; }
+    .price { margin-block: 0.4rem 0.7rem; color: var(--silver-light); font-family: var(--font-display); font-size: 1.15rem; letter-spacing: 0.1em; }
+
+    a {
+      display: block;
+      margin-block-start: auto;
+      padding: 0.6rem 0.5rem;
+      border: var(--line) solid var(--silver);
+      border-radius: 2rem;
+      color: var(--silver-light);
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      &:hover { background: var(--silver-light); color: var(--burgundy); }
+    }
+  }
+}
+
+/* ==========================================================================
+   6. ABOUT PAGE
+   ========================================================================== */
+@layer about {
+
+  .about {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+    align-items: center;
+    max-inline-size: 56rem;
+    margin: 1.5rem auto 3rem;
+    padding-inline: 1rem;
+  }
+
+  .about-photo {
+    max-inline-size: 16rem;
+    margin-inline: auto;
+    padding: 0.6rem 0.6rem 0;
+    border: var(--line) solid var(--silver);
+    outline: var(--line) solid var(--silver);
+    outline-offset: 0.4rem;
+    rotate: -4deg;
+
+    img { aspect-ratio: 4 / 5; inline-size: 100%; object-fit: cover; background: var(--photo-fallback); }
+    figcaption { padding-block: 0.6rem; font-family: var(--font-hand); text-align: center; color: var(--silver-light); }
+  }
+
+  .about-text {
+    padding: 1.4rem;
+    z-index: 15;
+    border: var(--line) solid var(--silver);
+    border-radius: 1.6rem 0.6rem 1.6rem 0.6rem;
+    line-height: 1.7;
+
+    h2 { margin-block-end: 0.7rem; font-size: 1.6rem; letter-spacing: 0.15em; }
+    p  { margin-block-end: 0.8rem; }
+    ul { list-style: none; }
+    li::before { content: "✦ "; color: var(--silver-light); }
+  }
+}
+
