@@ -653,7 +653,8 @@
 }
 
 /* --- Desktop: wide landscape board instead of a portrait column ---------- */
-@media (min-width: 56rem) and (min-aspect-ratio: 1/1) {  .collage {
+@media (min-width: 56rem) and (min-aspect-ratio: 1/1) {
+  .collage {
     aspect-ratio: 100 / 62;
     max-inline-size: 90rem;
   }
@@ -773,5 +774,171 @@ body.scatter .piece.flyer {
   .collage .sticker-shop,
   .collage .sticker-tag {
     font-size: calc(var(--dw, var(--w, 20)) * 0.3cqw);
+  }
+}
+
+/* ==========================================================================
+   11. MOBILE / PORTRAIT: full-screen collage + About page fit
+   ========================================================================== */
+
+/* Collage fills at least the whole screen, pieces spread over its height */
+@media not ((min-width: 56rem) and (min-aspect-ratio: 1/1)) {
+  .collage {
+    min-block-size: 100vh;
+    min-block-size: 100svh; /* stable height, ignores the URL bar */
+    margin-block-end: 2rem;
+  }
+  .collage .piece {
+    /* --y is 0-132; convert to a % of the board's height instead of cqw */
+    inset-block-start: calc(var(--y) / 132 * 100%);
+  }
+}
+
+/* Never allow sideways scrolling (this is what makes phones zoom out) */
+html {
+  overflow-x: hidden;
+}
+body {
+  max-inline-size: 100%;
+}
+
+/* About page: readable text at normal phone size */
+.about {
+  inline-size: 100%;
+}
+.about-text {
+  inline-size: 100%;
+  max-inline-size: 40rem;
+  min-inline-size: 0;
+  padding: 1.25rem;
+  font-size: 1rem;
+  overflow-wrap: anywhere;
+}
+.about-text h2 {
+  font-size: 1.5rem;
+}
+.about-page {
+  position: relative;
+  overflow-x: clip;
+}
+
+/* ==========================================================================
+   12. ABOUT: canvas only on the text card, everything straight
+   ========================================================================== */
+
+/* Photo: back to the plain line-style frame, no canvas, no tilt */
+.about-photo {
+  background: none;
+  box-shadow: none;
+  rotate: 0deg;
+  outline: var(--line) solid var(--silver);
+  outline-offset: 0.4rem;
+}
+.about-photo figcaption {
+  color: var(--silver-light);
+}
+
+/* Text card: the only canvas piece, perfectly straight */
+.about-text {
+  background:
+    url("images/canvasPaper.jpg") center / cover no-repeat,
+    #efe9dc;
+  box-shadow: 0 0.5rem 1.2rem rgb(0 0 0 / 0.35);
+  rotate: 0deg;
+  transform: none;
+}
+
+/* ==========================================================================
+   13. ABOUT: responsive. Stacked on phones, side by side on desktop
+   ========================================================================== */
+
+/* Stars are positioned inside the About area, so they never widen the page */
+.about-page {
+  position: relative;
+  container-type: inline-size;
+  overflow: clip;
+}
+.about-page .piece {
+  inset-block-start: calc(
+    var(--y) * 1%
+  ); /* --y is now a % of the page height */
+}
+
+/* Layout: phone first (stacked) */
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  inline-size: 100%;
+  max-inline-size: 64rem;
+  margin: 1.5rem auto 3rem;
+  padding-inline: 1rem;
+}
+
+/* Photo: a canvas polaroid, on its own */
+.about-photo {
+  position: relative;
+  z-index: 10;
+  inline-size: 100%;
+  max-inline-size: 18rem;
+  margin: 0;
+  padding: 0.8rem 0.8rem 0;
+  border: 0;
+  outline: 0;
+  rotate: 0deg;
+  background:
+    url("images/canvasPaper.jpg") center / cover no-repeat,
+    #efe9dc;
+  box-shadow: 0 0.5rem 1.2rem rgb(0 0 0 / 0.35);
+}
+.about-photo img {
+  border: var(--line) solid var(--burgundy-dark);
+}
+.about-photo figcaption {
+  padding-block: 0.7rem 1rem;
+  font-family: var(--font-hand);
+  font-size: 1.6rem;
+  text-align: center;
+  color: var(--burgundy-dark);
+}
+
+/* Text: its own canvas card, straight */
+.about-text {
+  position: relative;
+  z-index: 10;
+  inline-size: 100%;
+  max-inline-size: 40rem;
+  min-inline-size: 0;
+  padding: 1.25rem;
+  font-size: 1rem;
+  overflow-wrap: break-word;
+  background:
+    url("images/canvasPaper.jpg") center / cover no-repeat,
+    #efe9dc;
+  box-shadow: 0 0.5rem 1.2rem rgb(0 0 0 / 0.35);
+  rotate: 0deg;
+}
+
+/* Desktop / tablet: photo left, text right */
+@media (min-width: 48rem) {
+  .about {
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
+    padding-inline: 2rem;
+  }
+  .about-photo {
+    flex: 0 0 18rem;
+    inline-size: 18rem;
+  }
+  .about-text {
+    flex: 1 1 0;
+    max-inline-size: none;
+    padding: 2rem;
+    font-size: 1.05rem;
+  }
+  .about-text h2 {
+    font-size: 1.8rem;
   }
 }
