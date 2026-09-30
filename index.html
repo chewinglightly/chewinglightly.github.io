@@ -224,6 +224,11 @@
   • Add a doodle: copy a doodle line and change the numbers or the #d-... id.
 ====================================================================== -->
 
+    <!-- Title: fixed to the centre of the window at all times (see style.css) -->
+    <div class="title outline-text">
+      <img src="images/silverTitle.png" alt="Chewing Lightly logo" />
+    </div>
+
     <main class="collage">
       <!-- Title (styled in style.css, section 4) -->
       <!-- <h1 class="title outline-text">
@@ -231,22 +236,6 @@
     <span>Lightly</span>
     <small>✦ 2026 ✦</small>
   </h1> -->
-      <div
-        style="
-          width: 100%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        "
-      >
-        <div class="title outline-text">
-          <img
-            src="images/title.png"
-            alt="Chewing Lightly logo"
-            loading="lazy"
-          />
-        </div>
-      </div>
 
       <!-- BACKGROUND LINE PATTERNS ================================== -->
       <!-- <div class="piece backdrop grid"     style="--x:0;  --y:0;  --w:100; --h:132; --z:0" aria-hidden="true"></div> -->
@@ -255,17 +244,27 @@
 
       <!-- Faded duplicate photo behind the title -->
       <div
-        class="piece frame blob-a"
-        style="--x: 36; --y: 40; --w: 30; --z: 1; --tilt: 2deg"
+        class="piece frame polaroid"
+        style="
+          --x: 40;
+          --y: 40;
+          --w: 30;
+          --z: 1;
+          --tilt: 2deg;
+          --dx: 40;
+          --dy: 16;
+          --dw: 20;
+        "
         aria-hidden="true"
       >
         <img src="images/sunflowerEarrings.png" alt="" loading="lazy" />
+        <figcaption>❀</figcaption>
       </div>
 
       <!-- DOODLES BEHIND THE PHOTOS ================================= -->
       <svg
         class="piece doodle"
-        style="--x: 1; --y: 40; --w: 36; --z: 2"
+        style="--x: 1; --y: 40; --w: 36; --z: 2; --dx: 0; --dy: 26; --dw: 24"
         viewBox="0 0 100 100"
         aria-hidden="true"
       >
@@ -275,93 +274,151 @@
       <!-- PHOTOS ==================================================== -->
       <figure
         class="piece"
-        style="--x: 7; --y: 29; --w: 38; --tilt: -4deg; --z: 3"
+        style="
+          --x: 7;
+          --y: 9;
+          --w: 38;
+          --tilt: -4deg;
+          --z: 3;
+          --dx: 4;
+          --dy: 3;
+          --dw: 20;
+        "
       >
-        <div class="frame blob-a" style="--ratio: 4/5">
+        <div class="frame polaroid" style="--ratio: 4/5">
           <img
             src="images/HannahEarring.png"
             alt="Silver necklace"
             loading="lazy"
           />
+          <figcaption>❀✽✼</figcaption>
         </div>
       </figure>
 
       <figure
         class="piece"
-        style="--x: 62; --y: 30; --w: 25; --tilt: 6deg; --z: 4"
+        style="
+          --x: 62;
+          --y: 10;
+          --w: 25;
+          --tilt: 6deg;
+          --z: 4;
+          --dx: 70;
+          --dy: 3;
+          --dw: 16;
+        "
       >
-        <div class="frame blob-b" ">
+        <div class="frame polaroid">
           <img src="images/EJshroom.png" alt="Silver rings" loading="lazy" />
+          <figcaption>🍄🍄🍄</figcaption>
         </div>
       </figure>
 
-      <figure class="piece" style="--x: 4; --y: 66; --w: 28; --z: 6">
-        <div class="frame circle">
+      <figure
+        class="piece"
+        style="--x: 4; --y: 56; --w: 28; --z: 6; --dx: 3; --dy: 34; --dw: 17"
+      >
+        <div class="frame polaroid">
           <img src="images/flowerPendant.png" alt="Pendant" loading="lazy" />
+          <figcaption>✿</figcaption>
         </div>
       </figure>
 
       <figure
         class="piece"
-        style="--x: 30; --y: 70; --w: 34; --tilt: -6deg; --z: 5"
+        style="
+          --x: 30;
+          --y: 80;
+          --w: 34;
+          --tilt: -6deg;
+          --z: 5;
+          --dx: 25;
+          --dy: 38;
+          --dw: 19;
+        "
       >
-        <div class="frame heart">
+        <div class="frame polaroid">
           <img src="images/handFlower.png" alt="Earrings" loading="lazy" />
+          <figcaption>❀</figcaption>
         </div>
       </figure>
 
       <figure
         class="piece"
-        style="--x: 65; --y: 58; --w: 29; --tilt: 5deg; --z: 4"
+        style="
+          --x: 65;
+          --y: 58;
+          --w: 29;
+          --tilt: 5deg;
+          --z: 4;
+          --dx: 80;
+          --dy: 27;
+          --dw: 16;
+        "
       >
-        <div class="frame arch" style="--ratio: 3/4">
+        <div class="frame polaroid" style="--ratio: 3/4">
           <img src="images/gemHand.png" alt="Bracelet" loading="lazy" />
+          <figcaption>✿❀இ</figcaption>
         </div>
       </figure>
 
       <figure
         class="piece polaroid"
-        style="--x: 12; --y: 93; --w: 31; --tilt: -5deg; --z: 6"
+        style="
+          --x: 8;
+          --y: 93;
+          --w: 31;
+          --tilt: -5deg;
+          --z: 6;
+          --dx: 48;
+          --dy: 40;
+          --dw: 16;
+        "
       >
-        <img
-          src="images/gem.jpeg"
-          alt="Chain necklaces"
-          loading="lazy"
-        />
-        <figcaption>♧</figcaption>
+        <img src="images/gem.jpeg" alt="Chain necklaces" loading="lazy" />
+        <figcaption>(◕ᴗ◕✿)</figcaption>
       </figure>
 
       <figure
         class="piece"
-        style="--x: 46; --y: 97; --w: 24; --tilt: 8deg; --z: 6"
+        style="
+          --x: 46;
+          --y: 97;
+          --w: 24;
+          --tilt: 8deg;
+          --z: 6;
+          --dx: 36;
+          --dy: 2;
+          --dw: 14;
+        "
       >
-        <div class="frame blob-b">
+        <div class="frame polaroid">
           <img
             src="images/handDaffodil.png"
             alt="hand holding daffodil earrings"
             loading="lazy"
           />
+          <figcaption>⋆⁺₊⋆ ☀︎ ⋆⁺₊⋆</figcaption>
         </div>
       </figure>
 
       <!-- TAPE ====================================================== -->
       <!-- hannah tape: -->
-      <span
+      <!-- <span
         class="piece tape"
-        style="--x: 16; --y: 28; --w: 16; --tilt: -8deg; --z: 9"
-        aria-hidden="true"
-      ></span>
-      <!-- flower tape -->
-      <span
-        class="piece tape"
-        style="--x: 18; --y: 90; --w: 13; --tilt: 6deg; --z: 9"
+        style="--x: 16; --y: 7; --w: 16; --tilt: -8deg; --z: 9; --dx: 10; --dy: 2; --dw: 12"
         aria-hidden="true"
       ></span>
       <span
         class="piece tape"
-        style="--x: 72; --y: 56; --w: 15; --tilt: 10deg; --z: 9"
+        style="--x: 18; --y: 90; --w: 13; --tilt: 6deg; --z: 9; --dx: 30; --dy: 36; --dw: 10"
         aria-hidden="true"
       ></span>
+      <span
+        class="piece tape"
+        style="--x: 72; --y: 56; --w: 15; --tilt: 10deg; --z: 9; --dx: 84; --dy: 26; --dw: 10"
+        aria-hidden="true"
+      ></span> -->
 
       <!-- DOODLES ON TOP ============================================ -->
       <!-- red stars -->
@@ -369,34 +426,79 @@
         src="images/redStar.png"
         alt="red star doodle"
         class="piece doodle"
-        style="--x: 14; --y: 59; --w: 13; --tilt: 12deg; --z: 8"
-        aria-hidden="true"
-      />
-       <img
-        src="images/redStar.png"
-        alt="red star doodle"
-        class="piece doodle"
-        style="--x: 74; --y: 19; --w: 13; --tilt: 12deg; --z: 2"
-        aria-hidden="true"
-      />
-      <img
-        src="images/redStar.png"
-        alt="red star doodle"
-        class="piece doodle"
-        style="--x: 54; --y: 78; --w: 13; --tilt: 12deg; --z: 2"
+        style="
+          --x: 14;
+          --y: 59;
+          --w: 13;
+          --tilt: 12deg;
+          --z: 8;
+          --dx: 22;
+          --dy: 30;
+          --dw: 10;
+        "
         aria-hidden="true"
       />
       <img
         src="images/redStar.png"
         alt="red star doodle"
         class="piece doodle"
-        style="--x: 37; --y: 108; --w: 13; --tilt: 12deg; --z: 2"
+        style="
+          --x: 74;
+          --y: 19;
+          --w: 13;
+          --tilt: 12deg;
+          --z: 2;
+          --dx: 88;
+          --dy: 6;
+          --dw: 10;
+        "
+        aria-hidden="true"
+      />
+      <img
+        src="images/redStar.png"
+        alt="red star doodle"
+        class="piece doodle"
+        style="
+          --x: 54;
+          --y: 78;
+          --w: 13;
+          --tilt: 12deg;
+          --z: 2;
+          --dx: 62;
+          --dy: 30;
+          --dw: 8;
+        "
+        aria-hidden="true"
+      />
+      <img
+        src="images/redStar.png"
+        alt="red star doodle"
+        class="piece doodle"
+        style="
+          --x: 37;
+          --y: 108;
+          --w: 13;
+          --tilt: 12deg;
+          --z: 2;
+          --dx: 30;
+          --dy: 16;
+          --dw: 9;
+        "
         aria-hidden="true"
       />
 
       <svg
         class="piece doodle"
-        style="--x: 0; --y: 46; --w: 17; --tilt: -10deg; --z: 8"
+        style="
+          --x: 0;
+          --y: 46;
+          --w: 17;
+          --tilt: -10deg;
+          --z: 8;
+          --dx: 0;
+          --dy: 46;
+          --dw: 12;
+        "
         viewBox="0 0 100 100"
         aria-hidden="true"
       >
@@ -404,7 +506,16 @@
       </svg>
       <svg
         class="piece doodle"
-        style="--x: 84; --y: 108; --w: 13; --tilt: 12deg; --z: 8"
+        style="
+          --x: 84;
+          --y: 108;
+          --w: 13;
+          --tilt: 12deg;
+          --z: 8;
+          --dx: 50;
+          --dy: 55;
+          --dw: 6;
+        "
         viewBox="0 0 100 100"
         aria-hidden="true"
       >
@@ -412,7 +523,16 @@
       </svg>
       <svg
         class="piece doodle"
-        style="--x: 56; --y: 114; --w: 12; --tilt: -6deg; --z: 8"
+        style="
+          --x: 56;
+          --y: 114;
+          --w: 12;
+          --tilt: -6deg;
+          --z: 8;
+          --dx: 60;
+          --dy: 54;
+          --dw: 7;
+        "
         viewBox="0 0 100 100"
         aria-hidden="true"
       >
@@ -420,7 +540,16 @@
       </svg>
       <svg
         class="piece doodle"
-        style="--x: 26; --y: 86; --w: 20; --tilt: -8deg; --z: 8"
+        style="
+          --x: 26;
+          --y: 86;
+          --w: 20;
+          --tilt: -8deg;
+          --z: 8;
+          --dx: 22;
+          --dy: 54;
+          --dw: 14;
+        "
         viewBox="0 0 100 40"
         aria-hidden="true"
       >
@@ -428,7 +557,16 @@
       </svg>
       <svg
         class="piece doodle"
-        style="--x: 80; --y: 88; --w: 16; --tilt: 14deg; --z: 8"
+        style="
+          --x: 80;
+          --y: 88;
+          --w: 16;
+          --tilt: 14deg;
+          --z: 8;
+          --dx: 84;
+          --dy: 52;
+          --dw: 12;
+        "
         viewBox="0 0 100 40"
         aria-hidden="true"
       >
@@ -436,7 +574,16 @@
       </svg>
       <svg
         class="piece doodle"
-        style="--x: 29; --y: 118; --w: 8; --tilt: -12deg; --z: 8"
+        style="
+          --x: 29;
+          --y: 118;
+          --w: 8;
+          --tilt: -12deg;
+          --z: 8;
+          --dx: 70;
+          --dy: 50;
+          --dw: 5;
+        "
         viewBox="0 0 100 100"
         aria-hidden="true"
       >
@@ -444,7 +591,16 @@
       </svg>
       <svg
         class="piece doodle"
-        style="--x: 91; --y: 30; --w: 6; --tilt: 12deg; --z: 10"
+        style="
+          --x: 91;
+          --y: 30;
+          --w: 6;
+          --tilt: 12deg;
+          --z: 10;
+          --dx: 90;
+          --dy: 22;
+          --dw: 4;
+        "
         viewBox="0 0 100 100"
         aria-hidden="true"
       >
@@ -452,7 +608,16 @@
       </svg>
       <svg
         class="piece doodle"
-        style="--x: 36; --y: 27; --w: 6; --tilt: -14deg; --z: 10"
+        style="
+          --x: 36;
+          --y: 27;
+          --w: 6;
+          --tilt: -14deg;
+          --z: 10;
+          --dx: 28;
+          --dy: 26;
+          --dw: 4;
+        "
         viewBox="0 0 100 100"
         aria-hidden="true"
       >
@@ -462,7 +627,16 @@
       <!-- Sparkles (--delay staggers the twinkle) -->
       <svg
         class="piece doodle sparkle"
-        style="--x: 41; --y: 19; --w: 10; --z: 10; --delay: 0s"
+        style="
+          --x: 41;
+          --y: 19;
+          --w: 10;
+          --z: 10;
+          --delay: 0s;
+          --dx: 34;
+          --dy: 12;
+          --dw: 6;
+        "
         viewBox="0 0 100 100"
         aria-hidden="true"
       >
@@ -470,7 +644,16 @@
       </svg>
       <svg
         class="piece doodle sparkle"
-        style="--x: 88; --y: 50; --w: 8; --z: 10; --delay: 0.5s"
+        style="
+          --x: 88;
+          --y: 50;
+          --w: 8;
+          --z: 10;
+          --delay: 0.5s;
+          --dx: 76;
+          --dy: 24;
+          --dw: 5;
+        "
         viewBox="0 0 100 100"
         aria-hidden="true"
       >
@@ -478,7 +661,16 @@
       </svg>
       <svg
         class="piece doodle sparkle"
-        style="--x: 27; --y: 92; --w: 7; --z: 10; --delay: 1s"
+        style="
+          --x: 27;
+          --y: 92;
+          --w: 7;
+          --z: 10;
+          --delay: 1s;
+          --dx: 44;
+          --dy: 34;
+          --dw: 5;
+        "
         viewBox="0 0 100 100"
         aria-hidden="true"
       >
@@ -486,7 +678,16 @@
       </svg>
       <svg
         class="piece doodle sparkle"
-        style="--x: 2; --y: 60; --w: 8; --z: 10; --delay: 1.5s"
+        style="
+          --x: 2;
+          --y: 60;
+          --w: 8;
+          --z: 10;
+          --delay: 1.5s;
+          --dx: 2;
+          --dy: 30;
+          --dw: 5;
+        "
         viewBox="0 0 100 100"
         aria-hidden="true"
       >
@@ -494,7 +695,16 @@
       </svg>
       <svg
         class="piece doodle sparkle"
-        style="--x: 60; --y: 94; --w: 6; --z: 10; --delay: 2s"
+        style="
+          --x: 60;
+          --y: 94;
+          --w: 6;
+          --z: 10;
+          --delay: 2s;
+          --dx: 64;
+          --dy: 52;
+          --dw: 5;
+        "
         viewBox="0 0 100 100"
         aria-hidden="true"
       >
@@ -502,7 +712,16 @@
       </svg>
       <svg
         class="piece doodle sparkle"
-        style="--x: 91; --y: 16; --w: 7; --z: 10; --delay: 2.4s"
+        style="
+          --x: 91;
+          --y: 16;
+          --w: 7;
+          --z: 10;
+          --delay: 2.4s;
+          --dx: 68;
+          --dy: 6;
+          --dw: 5;
+        "
         viewBox="0 0 100 100"
         aria-hidden="true"
       >
@@ -510,27 +729,145 @@
       </svg>
 
       <!-- STICKERS AND LINKS ======================================== -->
-      <span
+      <!-- <span
         class="piece sticker sticker-round"
         style="--x:0; --y: 106; --w: 19; --tilt: -12deg; --z: 7"
         aria-hidden="true"
       >
         ✦ chomp chomp ✦</span
-      >
+      > -->
 
       <a
         class="piece sticker sticker-shop"
         href="shop.html"
-        style="--x: 69; --y: 96; --w: 21; --tilt: -8deg; --z: 8"
+        style="
+          --x: 69;
+          --y: 96;
+          --w: 21;
+          --tilt: -8deg;
+          --z: 8;
+          --dx: 87;
+          --dy: 46;
+          --dw: 11;
+        "
         >shop</a
       >
 
       <a
         class="piece sticker sticker-tag"
         href="about.html"
-        style="--x: 72; --y: 121; --w: 25; --tilt: 4deg; --z: 8"
-        >about ✦</a
+        style="
+          --x: 62;
+          --y: 115;
+          --w: 21;
+          --tilt: 4deg;
+          --z: 8;
+          --dx: 72;
+          --dy: 48;
+          --dw: 13;
+        "
+        >about</a
       >
     </main>
+    <script>
+      (() => {
+        const title = document.querySelector(".title");
+        if (!title) return;
+
+        // every polaroid and post-it on the board
+        const flyers = [...document.querySelectorAll(".collage .piece")].filter(
+          (el) =>
+            el.matches(".polaroid, .sticker") || el.querySelector(".polaroid"),
+        );
+        flyers.forEach((el) => el.classList.add("flyer"));
+
+        const MARGIN = -50; // px kept clear of the screen edge
+        let on = false;
+        let lastType = "mouse";
+
+        const clamp = (v, lo, hi) => Math.min(Math.max(v, lo), hi);
+
+        // current translate of an element (so we can find its resting position
+        // even if it's mid-animation)
+        function currentShift(el) {
+          const t = getComputedStyle(el).translate;
+          if (!t || t === "none") return [0, 0];
+          const [x, y] = t.split(" ").map(parseFloat);
+          return [x || 0, y || 0];
+        }
+
+        function calc() {
+          const t = title.getBoundingClientRect();
+          const cx = t.left + t.width / 2;
+          const cy = t.top + t.height / 2;
+          const push = Math.max(70, Math.min(innerWidth, innerHeight) * 0.2);
+
+          flyers.forEach((el, i) => {
+            const r = el.getBoundingClientRect();
+            const [sx, sy] = currentShift(el);
+            // resting box
+            const left = r.left - sx,
+              right = r.right - sx;
+            const top = r.top - sy,
+              bottom = r.bottom - sy;
+
+            let dx = (left + right) / 2 - cx;
+            let dy = (top + bottom) / 2 - cy;
+            let len = Math.hypot(dx, dy);
+            if (len < 1) {
+              const a = i * 2.4;
+              dx = Math.cos(a);
+              dy = Math.sin(a);
+              len = 1;
+            }
+
+            let mx = (dx / len) * push;
+            let my = (dy / len) * push;
+
+            // keep fully on screen horizontally
+            mx = clamp(
+              mx,
+              Math.min(0, MARGIN - left),
+              Math.max(0, innerWidth - MARGIN - right),
+            );
+            // and vertically, for pieces currently in view
+            if (bottom > 0 && top < innerHeight) {
+              my = clamp(
+                my,
+                Math.min(0, MARGIN - top),
+                Math.max(0, innerHeight - MARGIN - bottom),
+              );
+            }
+
+            el.style.setProperty("--fx", mx.toFixed(1) + "px");
+            el.style.setProperty("--fy", my.toFixed(1) + "px");
+          });
+        }
+
+        function set(state) {
+          if (state === on) return;
+          on = state;
+          if (on) calc();
+          document.body.classList.toggle("scatter", on);
+        }
+
+        title.addEventListener("pointerdown", (e) => {
+          lastType = e.pointerType;
+        });
+        title.addEventListener("pointerenter", (e) => {
+          if (e.pointerType === "mouse") set(true);
+        });
+        title.addEventListener("pointerleave", (e) => {
+          if (e.pointerType === "mouse") set(false);
+        });
+        title.addEventListener("click", () => {
+          if (lastType !== "mouse") set(!on);
+        }); // tap to toggle on touch
+
+        addEventListener("resize", () => {
+          if (on) calc();
+        });
+      })();
+    </script>
   </body>
 </html>

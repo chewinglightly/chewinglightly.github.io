@@ -9,53 +9,83 @@
    6. About page
    ========================================================================== */
 
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap");
 @layer base, shared, home, prints, about;
 
 /* ==========================================================================
    1. DESIGN TOKENS
    ========================================================================== */
 :root {
-  --burgundy:      #610b0d;   /* background */
+  --burgundy: #610b0d; /* background */
   --burgundy-dark: #2a0405;
-  --red:           #a90b0d;   /* accent */
-  --silver:        #c9ccd3;   /* all the line work */
-  --silver-light:  #f4f6fa;   /* highlights */
-  --chrome: linear-gradient(135deg, #f4f6fa 0%, #a9adb6 35%, #e8eaf0 55%, #7d818a 100%);
+  --red: #a90b0d; /* accent */
+  --silver: #c9ccd3; /* all the line work */
+  --silver-light: #f4f6fa; /* highlights */
+  --chrome: linear-gradient(
+    135deg,
+    #f4f6fa 0%,
+    #a9adb6 35%,
+    #e8eaf0 55%,
+    #7d818a 100%
+  );
 
-  --line: 1.5px;              /* ← make every drawn line thicker or thinner */
+  --line: 1.5px; /* ← make every drawn line thicker or thinner */
 
   --font-display: "Century Schoolbook", "Garamond", serif;
-  --font-body:    "Trebuchet MS", Verdana, sans-serif;
-  --font-hand:    "Comic Sans MS", "Marker Felt", cursive;
-
+  --font-body: "Trebuchet MS", Verdana, sans-serif;
+  --font-hand: "Caveat", "Bradley Hand", "Segoe Print", cursive;
   /* Shows while a photo loads (or if its link is broken) */
-  --photo-fallback: radial-gradient(circle at 30% 30%, #e8eaf0 0, #a9adb6 30%, #4a0809 100%);
+  --photo-fallback: radial-gradient(
+    circle at 30% 30%,
+    #e8eaf0 0,
+    #a9adb6 30%,
+    #4a0809 100%
+  );
 }
 
 /* ==========================================================================
    2. BASE
    ========================================================================== */
 @layer base {
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { -webkit-text-size-adjust: 100%; }
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
 
   body {
     min-block-size: 100vh;
     background: var(--burgundy);
+    background-image: image-set(url("images/cordBG.png") 1x);
     color: var(--silver);
     font-family: var(--font-body);
     overflow-x: clip;
   }
-  img { display: block; max-inline-size: 100%; color: transparent; } /* hides alt text if a photo fails */
-  :focus-visible { outline: 2px solid var(--silver-light); outline-offset: 3px; }
-  a { color: var(--red); font-weight: 900; text-decoration: underline; }
+  img {
+    display: block;
+    max-inline-size: 100%;
+    color: transparent;
+  } /* hides alt text if a photo fails */
+  :focus-visible {
+    outline: 2px solid var(--silver-light);
+    outline-offset: 3px;
+  }
+  a {
+    color: var(--red);
+    font-weight: 900;
+    text-decoration: underline;
+  }
 }
 
 /* ==========================================================================
    3. SHARED PARTS
    ========================================================================== */
 @layer shared {
-
   /* Outlined lettering: transparent fill, thin silver stroke */
   .outline-text {
     color: transparent;
@@ -92,7 +122,10 @@
       text-transform: uppercase;
 
       &:hover,
-      &[aria-current="page"] { background: var(--silver-light); color: var(--burgundy); }
+      &[aria-current="page"] {
+        background: var(--silver-light);
+        color: var(--burgundy);
+      }
     }
   }
 
@@ -105,7 +138,9 @@
       line-height: 1.05;
       letter-spacing: 0.05em;
       rotate: -2deg;
-      filter: drop-shadow(0.35rem 0.35rem 0 rgb(201 204 211 / 0.3));  /* ghost outline */
+      filter: drop-shadow(
+        0.35rem 0.35rem 0 rgb(201 204 211 / 0.3)
+      ); /* ghost outline */
     }
     p {
       display: inline-block;
@@ -133,7 +168,10 @@
     text-decoration: none;
     text-transform: uppercase;
 
-    &:hover { background: var(--silver-light); color: var(--burgundy); }
+    &:hover {
+      background: var(--silver-light);
+      color: var(--burgundy);
+    }
   }
 
   .site-footer {
@@ -154,9 +192,8 @@
    The board is 100 wide and 132 tall and scales to any screen.
    ========================================================================== */
 @layer home {
-
   .collage {
-    container-type: inline-size;   /* "cqw" below = 1% of the board's width */
+    container-type: inline-size; /* "cqw" below = 1% of the board's width */
     position: relative;
     inline-size: 100%;
     max-inline-size: 56rem;
@@ -168,13 +205,19 @@
   .piece {
     position: absolute;
     inset-inline-start: calc(var(--x) * 1cqw);
-    inset-block-start:  calc(var(--y) * 1cqw);
-    inline-size:        calc(var(--w, 10) * 1cqw);
+    inset-block-start: calc(var(--y) * 1cqw);
+    inline-size: calc(var(--w, 10) * 1cqw);
     z-index: var(--z, 3);
     rotate: var(--tilt, 0deg);
-    transition: rotate 0.25s, scale 0.25s;
+    transition:
+      rotate 0.25s,
+      scale 0.25s;
 
-    &:hover { rotate: 0deg; scale: 1.05; z-index: 20; }
+    &:hover {
+      rotate: 0deg;
+      scale: 1.05;
+      z-index: 20;
+    }
   }
 
   /* --- Drawn doodles (SVG) --------------------------------------------- */
@@ -182,22 +225,30 @@
     color: var(--silver);
     fill: none;
     stroke: currentColor;
-    stroke-width: 1.6;                 /* line thickness of the doodles (drawing units) */
+    stroke-width: 1.6; /* line thickness of the doodles (drawing units) */
     stroke-linecap: round;
     stroke-linejoin: round;
     overflow: visible;
     pointer-events: none;
   }
-  .sparkle { animation: twinkle 2.6s ease-in-out infinite; animation-delay: var(--delay, 0s); }
-  @keyframes twinkle { 50% { scale: 0.6; opacity: 0.55; rotate: 45deg; } }
+  .sparkle {
+    animation: twinkle 2.6s ease-in-out infinite;
+    animation-delay: var(--delay, 0s);
+  }
+  @keyframes twinkle {
+    50% {
+      scale: 0.6;
+      opacity: 0.55;
+      rotate: 45deg;
+    }
+  }
 
   /* --- Photo frames: image cut to a shape + a thin outline halo -------- */
   .frame {
     position: relative;
     aspect-ratio: var(--ratio, 1);
     /* Thin silver outline that hugs the cut-out shape (works in every browser) */
-    filter:
-      drop-shadow(var(--line) 0 0 var(--silver))
+    filter: drop-shadow(var(--line) 0 0 var(--silver))
       drop-shadow(calc(var(--line) * -1) 0 0 var(--silver))
       drop-shadow(0 var(--line) 0 var(--silver))
       drop-shadow(0 calc(var(--line) * -1) 0 var(--silver));
@@ -211,12 +262,24 @@
     }
   }
   /* Pick a shape by adding one of these classes to a .frame */
-  .blob-a { --clip: url(#clip-blob-a); }
-  .blob-b { --clip: url(#clip-blob-b); }
-  .star   { --clip: url(#clip-star); }
-  .heart  { --clip: url(#clip-heart); }
-  .circle { --clip: url(#clip-circle); }
-  .arch   { --clip: url(#clip-arch); }
+  .blob-a {
+    --clip: url(#clip-blob-a);
+  }
+  .blob-b {
+    --clip: url(#clip-blob-b);
+  }
+  .star {
+    --clip: url(#clip-star);
+  }
+  .heart {
+    --clip: url(#clip-heart);
+  }
+  .circle {
+    --clip: url(#clip-circle);
+  }
+  .arch {
+    --clip: url(#clip-arch);
+  }
 
   /* --- Polaroid (line version) ----------------------------------------- */
   .polaroid {
@@ -234,7 +297,12 @@
       border: var(--line) solid var(--silver);
       background: var(--photo-fallback);
     }
-    figcaption { padding-block: 1.4cqw 2cqw; font-family: var(--font-hand); font-size: 3.2cqw; color: var(--silver-light); }
+    figcaption {
+      padding-block: 1.4cqw 2cqw;
+      font-family: var(--font-hand);
+      font-size: 3.2cqw;
+      color: var(--silver-light);
+    }
   }
 
   /* --- Faded photo behind the title ------------------------------------ */
@@ -242,26 +310,48 @@
     aspect-ratio: 60 / 26;
     overflow: clip;
     border: var(--line) solid var(--silver);
-    img { inline-size: 100%; block-size: 100%; object-fit: cover; filter: grayscale(1); opacity: 0.35; }
+    img {
+      inline-size: 100%;
+      block-size: 100%;
+      object-fit: cover;
+      filter: grayscale(1);
+      opacity: 0.35;
+    }
   }
 
   /* --- Background line patterns ---------------------------------------- */
-  .backdrop { block-size: calc(var(--h) * 1cqw); pointer-events: none; }
-  .backdrop:hover { rotate: var(--tilt, 0deg); scale: 1; }
+  .backdrop {
+    block-size: calc(var(--h) * 1cqw);
+    pointer-events: none;
+  }
+  .backdrop:hover {
+    rotate: var(--tilt, 0deg);
+    scale: 1;
+  }
 
-  .grid {                                /* graph-paper lines */
+  .grid {
+    /* graph-paper lines */
     background-image:
       linear-gradient(rgb(201 204 211 / 0.16) 1px, transparent 1px),
       linear-gradient(90deg, rgb(201 204 211 / 0.16) 1px, transparent 1px);
     background-size: 7cqw 7cqw;
   }
-  .hatch {                               /* diagonal pen-hatching */
+  .hatch {
+    /* diagonal pen-hatching */
     border: var(--line) solid var(--silver);
-    background: repeating-linear-gradient(45deg, rgb(201 204 211 / 0.45) 0 1px, transparent 1px 1.6cqw);
+    background: repeating-linear-gradient(
+      45deg,
+      rgb(201 204 211 / 0.45) 0 1px,
+      transparent 1px 1.6cqw
+    );
   }
   .halftone {
     border-radius: 50%;
-    background: radial-gradient(circle, rgb(201 204 211 / 0.5) 22%, transparent 26%);
+    background: radial-gradient(
+      circle,
+      rgb(201 204 211 / 0.5) 22%,
+      transparent 26%
+    );
     background-size: 2.6cqw 2.6cqw;
     mask-image: radial-gradient(circle, #000 35%, transparent 70%);
   }
@@ -289,10 +379,25 @@
     text-decoration: none;
     text-transform: uppercase;
   }
-  a.sticker:hover { background: var(--silver-light); color: var(--burgundy); }
-  .sticker-round { aspect-ratio: 1; border-radius: 50%; font-size: 4cqw; }
-  .sticker-shop  { aspect-ratio: 1; border-radius: 50%; font-size: 4.6cqw; }
-  .sticker-tag   { padding: 1.6cqw 1cqw; border-radius: 99cqw; font-size: 3.8cqw; }
+  a.sticker:hover {
+    background: var(--silver-light);
+    color: var(--burgundy);
+  }
+  .sticker-round {
+    aspect-ratio: 1;
+    border-radius: 50%;
+    font-size: 4cqw;
+  }
+  .sticker-shop {
+    aspect-ratio: 1;
+    border-radius: 50%;
+    font-size: 4.6cqw;
+  }
+  .sticker-tag {
+    padding: 1.6cqw 1cqw;
+    border-radius: 99cqw;
+    font-size: 3.8cqw;
+  }
 
   /* --- Title ----------------------------------------------------------- */
   .title {
@@ -300,26 +405,32 @@
     /* centrally aligned: */
     align-items: center;
     justify-content: center;
-    top: 0%;
+    top: 50%;
     max-width: 50%;
     /* inset-inline: 0; */
     /* inset-block-start: 50cqw; */
     z-index: 15;
     line-height: 0.95;
     text-align: center;
-    rotate: -3deg;
-    transform: skewX(-6deg);
+    /* rotate: -3deg; */
+    /* transform: skewX(-6deg); */
     pointer-events: none;
     -webkit-text-stroke-width: max(var(--line), 0.22cqw);
-    filter: drop-shadow(1cqw 1cqw 0 rgb(201 204 211 / 0.28));   /* ghost outline */
-    
+    filter: drop-shadow(
+      1cqw 1cqw 0 rgb(201 204 211 / 0.28)
+    ); /* ghost outline */
+
     /* span  { display: block; font-size: var(--title-size, 18cqw); letter-spacing: 0.4cqw; }
     small { display: block; font-size: 8cqw;  letter-spacing: 1.4cqw; } */
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .sparkle { animation: none; }
-    .piece   { transition: none; }
+    .sparkle {
+      animation: none;
+    }
+    .piece {
+      transition: none;
+    }
   }
 }
 
@@ -327,10 +438,9 @@
    5. PRINTS PAGE
    ========================================================================== */
 @layer prints {
-
   .shop-note {
     max-inline-size: 38rem;
-    margin:3rem;
+    margin: 3rem;
     padding-inline: 1rem;
     font-size: 0.9rem;
     line-height: 1.6;
@@ -350,7 +460,8 @@
     margin: 1.2rem;
   }
 
-  .print-grid {                          /* adds/removes columns by itself */
+  .print-grid {
+    /* adds/removes columns by itself */
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
     gap: 1.4rem 0.9rem;
@@ -365,7 +476,7 @@
     flex-direction: column;
     padding: 0.6rem 0.6rem 0.9rem;
     border: var(--line) solid var(--silver);
-    border-radius: 1.2rem 1.2rem 0.5rem 1.2rem;      /* slightly hand-drawn corners */
+    border-radius: 1.2rem 1.2rem 0.5rem 1.2rem; /* slightly hand-drawn corners */
     text-align: center;
 
     img {
@@ -375,9 +486,25 @@
       border-radius: 0.8rem 0.8rem 0.3rem 0.8rem;
       background: var(--photo-fallback);
     }
-    h2     { margin-block: 0.7rem 0.1rem; color: var(--silver-light); font-size: clamp(0.85rem, 3.4vw, 1rem); font-weight: normal; letter-spacing: 0.14em; text-transform: uppercase; }
-    .size  { font-size: 0.75rem; opacity: 0.8; }
-    .price { margin-block: 0.4rem 0.7rem; color: var(--silver-light); font-family: var(--font-display); font-size: 1.15rem; letter-spacing: 0.1em; }
+    h2 {
+      margin-block: 0.7rem 0.1rem;
+      color: var(--silver-light);
+      font-size: clamp(0.85rem, 3.4vw, 1rem);
+      font-weight: normal;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .size {
+      font-size: 0.75rem;
+      opacity: 0.8;
+    }
+    .price {
+      margin-block: 0.4rem 0.7rem;
+      color: var(--silver-light);
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      letter-spacing: 0.1em;
+    }
 
     a {
       display: block;
@@ -391,7 +518,10 @@
       text-decoration: none;
       text-transform: uppercase;
 
-      &:hover { background: var(--silver-light); color: var(--burgundy); }
+      &:hover {
+        background: var(--silver-light);
+        color: var(--burgundy);
+      }
     }
   }
 }
@@ -400,7 +530,6 @@
    6. ABOUT PAGE
    ========================================================================== */
 @layer about {
-
   .about {
     display: flex;
     flex-direction: column;
@@ -420,21 +549,230 @@
     outline-offset: 0.4rem;
     rotate: -4deg;
 
-    img { aspect-ratio: 4 / 5; inline-size: 100%; object-fit: cover; background: var(--photo-fallback); }
-    figcaption { padding-block: 0.6rem; font-family: var(--font-hand); text-align: center; color: var(--silver-light); }
+    img {
+      aspect-ratio: 4 / 5;
+      inline-size: 100%;
+      object-fit: cover;
+      background: var(--photo-fallback);
+    }
+    figcaption {
+      padding-block: 0.6rem;
+      font-family: var(--font-hand);
+      text-align: center;
+      color: var(--silver-light);
+    }
   }
 
   .about-text {
+    background-image: url("images/canvasPaper.jpg");
     padding: 1.4rem;
     z-index: 15;
-    border: var(--line) solid var(--silver);
+    /* border: var(--line) solid var(--silver); */
     border-radius: 1.6rem 0.6rem 1.6rem 0.6rem;
     line-height: 1.7;
 
-    h2 { margin-block-end: 0.7rem; font-size: 1.6rem; letter-spacing: 0.15em; }
-    p  { margin-block-end: 0.8rem; }
-    ul { list-style: none; }
-    li::before { content: "✦ "; color: var(--silver-light); }
+    h2 {
+      margin-block-end: 0.7rem;
+      font-size: 1.6rem;
+      letter-spacing: 0.15em;
+      color: black;
+    }
+    p {
+      margin-block-end: 0.8rem;
+      color: black;
+    }
+    ul {
+      list-style: none;
+    }
+    li::before {
+      content: "✦ ";
+      color: var(--silver-light);
+    }
   }
 }
 
+/* ==========================================================================
+   7. HOME PAGE UPDATE: canvas polaroids, fixed centred title, responsive
+      board, post-it buttons. (Unlayered, so it wins over the layers above.)
+   ========================================================================== */
+
+/* --- Canvas-paper polaroids (home only) ---------------------------------- */
+.collage .polaroid {
+  background:
+    url("images/canvasPaper.jpg") center / cover no-repeat,
+    #efe9dc;
+  box-shadow: 0 0.8cqw 1.6cqw rgb(0 0 0 / 0.35);
+}
+.collage .polaroid img {
+  border-color: var(--burgundy-dark);
+}
+.collage .polaroid figcaption {
+  color: var(--burgundy-dark);
+}
+
+/* --- Title: always dead centre of the window ----------------------------- */
+.title {
+  position: fixed;
+  top: 50%;
+  top: 50dvh;
+  left: 50%;
+  translate: -50% -50%;
+  inline-size: min(62vw, 30rem);
+  max-inline-size: none;
+  z-index: 15;
+  pointer-events: none;
+  filter: drop-shadow(0.8vw 0.8vw 0 rgb(201 204 211 / 0.28));
+}
+.title img {
+  inline-size: 100%;
+  block-size: auto;
+}
+
+/* --- Post-it buttons ------------------------------------------------------ */
+.collage .sticker-shop,
+.collage .sticker-tag {
+  aspect-ratio: 1;
+  border: 0;
+  outline: 0;
+  border-radius: 1px 1px 1px 14% / 1px 1px 1px 7%;
+  background:
+    linear-gradient(180deg, rgb(0 0 0 / 0.07), transparent 16%), #ffe27a;
+  color: #3b2a05;
+  font-family: var(--font-hand);
+  font-weight: 700;
+  font-size: calc(var(--dw, var(--w, 20)) * 0.22cqw);
+  letter-spacing: 0;
+  text-transform: none;
+  box-shadow: 0.3cqw 0.9cqw 1.5cqw rgb(0 0 0 / 0.4);
+}
+.collage .sticker-tag {
+  background-color: #ff9fc3;
+}
+.collage a.sticker:hover {
+  filter: brightness(1.07);
+}
+
+/* --- Desktop: wide landscape board instead of a portrait column ---------- */
+@media (min-width: 56rem) {
+  .collage {
+    aspect-ratio: 100 / 62;
+    max-inline-size: 90rem;
+  }
+  .collage .piece {
+    inset-inline-start: calc(var(--dx, var(--x)) * 1cqw);
+    inset-block-start: calc(var(--dy, var(--y)) * 1cqw);
+    inline-size: calc(var(--dw, var(--w, 10)) * 1cqw);
+  }
+  .title {
+    inline-size: min(36vw, 34rem);
+  }
+}
+
+/* ==========================================================================
+   8. FIXES: no outer polaroid border, nothing clipped, page just scrolls
+   ========================================================================== */
+.collage .polaroid {
+  outline: 0; /* the outer border line */
+  filter: none; /* the thin silver halo the .frame class adds */
+}
+.collage {
+  overflow: visible; /* was "clip", which cut off anything past the board edge */
+  margin-block-end: max(
+    6rem,
+    20vw
+  ); /* extra scroll room under the last pieces */
+}
+
+/* ==========================================================================
+   9. TITLE INTERACTION: polaroids + post-its scatter away from the title
+   ========================================================================== */
+.title {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.collage .piece.flyer {
+  transition:
+    rotate 0.25s,
+    scale 0.25s,
+    translate 0.7s cubic-bezier(0.34, 1.45, 0.5, 1); /* slight springy overshoot */
+}
+body.scatter .collage .piece.flyer {
+  translate: var(--fx, 0px) var(--fy, 0px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .collage .piece.flyer {
+    transition: none;
+  }
+}
+/* ==========================================================================
+   10. ABOUT + SHOP: canvas polaroids, handwriting font, scattering stars
+   ========================================================================== */
+
+/* --- Canvas-paper polaroids on About and Shop ---------------------------- */
+.about-photo,
+.shop-note-div.polaroid {
+  background:
+    url("images/canvasPaper.jpg") center / cover no-repeat,
+    #efe9dc;
+  box-shadow: 0 0.5rem 1.2rem rgb(0 0 0 / 0.35);
+  outline: 0;
+  position: relative;
+  z-index: 10; /* sits above the red stars */
+}
+.about-photo figcaption {
+  color: var(--burgundy-dark);
+  font-size: 1.4rem;
+}
+
+/* About text card also sits above the stars */
+.about-text {
+  position: relative;
+  z-index: 10;
+}
+
+/* --- Shop note as a polaroid --------------------------------------------- */
+.shop-note-div.polaroid {
+  max-inline-size: 26rem;
+  margin: 1.5rem auto 3rem;
+  padding: 1.4rem 1.4rem 2.6rem; /* thicker bottom edge, like a real polaroid */
+  rotate: -2deg;
+}
+.shop-note-div .shop-note {
+  margin: 0;
+  padding: 0;
+  color: var(--burgundy-dark);
+  font-family: var(--font-hand);
+  font-style: normal;
+  font-size: 1.4rem;
+  line-height: 1.4;
+}
+
+/* --- Red stars fly away (same motion as the home title) ------------------ */
+.piece.flyer {
+  transition:
+    rotate 0.25s,
+    scale 0.25s,
+    translate 0.7s cubic-bezier(0.34, 1.45, 0.5, 1);
+}
+body.scatter .piece.flyer {
+  translate: var(--fx, 0px) var(--fy, 0px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .piece.flyer {
+    transition: none;
+  }
+}
+
+/* --- Post-it text: Caveat runs smaller than Comic Sans, so size it up ---- */
+.collage .sticker-shop,
+.collage .sticker-tag {
+  font-size: calc(var(--w, 20) * 0.3cqw);
+}
+@media (min-width: 56rem) {
+  .collage .sticker-shop,
+  .collage .sticker-tag {
+    font-size: calc(var(--dw, var(--w, 20)) * 0.3cqw);
+  }
+}
