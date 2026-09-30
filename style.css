@@ -653,8 +653,7 @@
 }
 
 /* --- Desktop: wide landscape board instead of a portrait column ---------- */
-@media (min-width: 56rem) {
-  .collage {
+@media (min-width: 56rem) and (min-aspect-ratio: 1/1) {  .collage {
     aspect-ratio: 100 / 62;
     max-inline-size: 90rem;
   }
@@ -770,7 +769,7 @@ body.scatter .piece.flyer {
 .collage .sticker-tag {
   font-size: calc(var(--w, 20) * 0.3cqw);
 }
-@media (min-width: 56rem) {
+@media (min-width: 56rem) and (min-aspect-ratio: 1/1) {
   .collage .sticker-shop,
   .collage .sticker-tag {
     font-size: calc(var(--dw, var(--w, 20)) * 0.3cqw);

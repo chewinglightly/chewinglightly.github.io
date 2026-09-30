@@ -777,7 +777,8 @@
         // every polaroid and post-it on the board
         const flyers = [...document.querySelectorAll(".collage .piece")].filter(
           (el) =>
-            el.matches(".polaroid, .sticker") || el.querySelector(".polaroid"),
+            el.matches(".polaroid, .sticker, .doodle") ||
+            el.querySelector(".polaroid"),
         );
         flyers.forEach((el) => el.classList.add("flyer"));
 
